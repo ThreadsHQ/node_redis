@@ -1096,9 +1096,10 @@ exports.RedisClient = RedisClient;
 exports.print = utils.print;
 exports.Multi = require('./lib/multi');
 exports.AbortError = errorClasses.AbortError;
-exports.RedisError = Parser.RedisError;
-exports.ParserError = Parser.ParserError;
-exports.ReplyError = Parser.ReplyError;
+var RedisErrors = require('redis-errors/lib/old');
+exports.RedisError = RedisErrors.RedisError;
+exports.ParserError = RedisErrors.ParserError;
+exports.ReplyError = RedisErrors.ReplyError;
 exports.AggregateError = errorClasses.AggregateError;
 
 // Add all redis commands / node_redis api to the client
